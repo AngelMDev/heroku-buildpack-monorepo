@@ -23,6 +23,12 @@ if [ $? -ne 0 ]; then
     exit 1
 fi
 
+# Delete everything under engines/
+if [ -d "${BUILD_DIR}/engines" ]; then
+    rm -rf "${BUILD_DIR}/engines"/*
+    echo "Cleared contents of engines/" | indent
+fi
+
 echo "Copied ${APP_BASE} to root of app successfully" | indent
 
 ls "${BUILD_DIR}"
